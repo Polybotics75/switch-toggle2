@@ -1,0 +1,264 @@
+:root{
+    --white: #F5F5F5;
+    --black: #212121;
+    --lwhite: #E5E5E5;
+    --dpale: #D3D3D3;
+    --danger: #fc0313;
+    --success: #13f235;
+    --primary: #212121;
+    --thumb: #555555;
+}
+
+
+*,
+body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    min-height: 80vh;
+    background: var(--white);
+    font-family: arial, sans-serif;
+    font-weight: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+body.dark{
+    --white: #212121;
+    --black: #FAFAFA;
+    --primary: rgb(186, 96, 235);
+    --thumb: #444444;
+}
+
+
+.fw{
+    width: 100%;
+}
+
+.flex{
+    display: flex;
+}
+
+.ac{
+    align-items: center;
+}
+
+.jsb{
+    justify-content: space-between;
+}
+
+.jc{
+    justify-content: center;
+}
+
+.round{
+    border-radius: 50%;
+}
+
+.main{
+    min-width: 150px;
+}
+
+.sbox{
+    flex-direction: column;
+    gap: 5px;
+}
+
+.title{
+    margin: 10px 0 70px;
+    font-size: 32px;
+    font-weight: 800;
+    color: var(--primary);
+    text-align: center;
+}
+.title span.by{
+    color: var(--dpale);
+    margin: 5px 0;
+    font-size: 12px;
+}
+.title span.name{
+    color: var(--black);
+    font-size: 14px;
+}
+
+.title.active span.head{
+    text-shadow: 10px 15px 30px rgba(186, 96, 235, 0.7);
+}
+
+.switch-tag{
+    font-size: 12px;
+    color: var(--black);
+}
+
+.switch-indicator{
+    width: 10px;
+    height: 10px;
+    background: var(--lwhite);
+}
+.switch-indicator.active#off{
+    background: var(--danger);
+    box-shadow: 0px 0px 15px var(--danger);
+}
+.switch-indicator.active#on{
+    background: var(--success);
+    box-shadow: 0px 0px 15px var(--success);
+}
+
+.switch-toggle{
+    height: 50px;
+    margin-top: 15px;
+    border-radius: 45px;
+    border: 1px solid var(--dpale);
+    background: var(--white);
+    position: relative;
+    overflow: hidden;
+}
+
+.switch-teeth-tab{
+    column-gap: 2px;
+    position: absolute;
+    z-index: 2;
+    rotate: 0deg;
+}
+.switch-teeth-tab.top{
+    top: -13px;
+}
+.switch-teeth-tab.bottom{
+    bottom: -13px;
+}
+
+.switch-teeth{
+    width: 20px;
+    height: 20px;
+    border-radius: 6px;
+    background: linear-gradient(var(--dpale), var(--black), var(--dpale));
+}
+
+
+.switch-toggle.on .switch-teeth-tab.top{
+    animation-name: teethTopOn;
+    animation-iteration-count: 1;
+    animation-duration: 2s;
+    rotate: -5deg;
+}
+.switch-toggle.on .switch-teeth-tab.bottom{
+    animation-name: teethBtmOn;
+    animation-iteration-count: 1;
+    animation-duration: 2s;
+    rotate: 5deg;
+}
+
+.switch-toggle.off .switch-teeth-tab.top{
+    animation-name: teethTopOff;
+    animation-iteration-count: 1;
+    animation-duration: 2s;
+    rotate: 5deg;
+}
+.switch-toggle.off .switch-teeth-tab.bottom{
+    animation-name: teethBtmOff;
+    animation-iteration-count: 1;
+    animation-duration: 2s;
+    rotate: -5deg;
+}
+
+.switch-thumb{
+    position: absolute;
+    z-index: 5;
+    top: 4px;
+    width: 40px;
+    height: 40px;
+    border: 0.3px solid var(--lwhite);
+    background: var(--thumb);
+    box-shadow: inset -0.5px 1px 1px var(--black);
+}
+.switch-thumb.on{
+    animation-name: onThumb;
+    animation-iteration-count: 1;
+    animation-duration: 2s;
+    right: 2px;
+}
+.switch-thumb.off{
+    animation-name: offThumb;
+    animation-iteration-count: 1;
+    animation-duration: 2s;
+    left: 2px;
+}
+
+
+
+/*ANIMATIONS*/
+@keyframes teethTopOn{
+    from{
+        rotate: 5deg;
+    }
+    
+    to{
+        rotate: -5deg;
+    }
+}
+@keyframes teethBtmOn{
+    from{
+        rotate: -5deg;
+    }
+    
+    to{
+        rotate: 5deg;
+    }
+}
+
+@keyframes teethTopOff{
+    from{
+        rotate: -5deg;
+    }
+    
+    to{
+        rotate: 5deg;
+    }
+}
+@keyframes teethBtmOff{
+    from{
+        rotate: 5deg;
+    }
+    
+    to{
+        rotate: -5deg;
+    }
+}
+
+
+
+
+
+@keyframes onThumb{
+    from{
+        right: 107px;
+    }
+    
+    to{
+        right: 2px;
+    }
+    
+}
+
+@keyframes offThumb{
+    from{
+        left: 107px;
+    }
+    
+    to{
+        left: 2px;
+    }
+    
+    
+}
+
+
+
+
+
+
+
